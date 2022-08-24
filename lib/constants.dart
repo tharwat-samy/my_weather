@@ -15,3 +15,4 @@ const kLinearGradient = LinearGradient(
 
 const kDuration = Duration(milliseconds: 2500);
 
+const kTransionDuration = Duration(milliseconds: 500);

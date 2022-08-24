@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:get/get.dart';
-import 'package:myweather/Features/auth/presentaion/views/register_view.dart';
-import 'package:myweather/constants.dart';
-import 'package:myweather/core/widgets/custom_general_button.dart';
-import 'package:myweather/core/widgets/custom_text_field.dart';
-import 'package:myweather/core/widgets/space_box.dart';
-import 'package:myweather/styles.dart';
 
-class LoginViewBody extends StatelessWidget {
-  const LoginViewBody({Key? key}) : super(key: key);
+import '../../../../core/widgets/custom_general_button.dart';
+import '../../../../core/widgets/custom_text_field.dart';
+import '../../../../core/widgets/space_box.dart';
+import '../../../../styles.dart';
+
+class RegisterViewBody extends StatelessWidget {
+  const RegisterViewBody({Key? key}) : super(key: key);
+
+  get kPrimaryColor => null;
 
   @override
   Widget build(BuildContext context) {
@@ -23,20 +23,26 @@ class LoginViewBody extends StatelessWidget {
             height: 7,
           ),
           Text(
-            'Welcome back',
+            'Become a Member',
             style: Styles.bodyText6,
           ),
           const SpaceBox(
             height: .5,
           ),
           Text(
-            'Login now',
+            'Create an Account',
             style: Styles.bodyText4.copyWith(
               color: Colors.grey.withOpacity(.7),
             ),
           ),
           const SpaceBox(
             height: 7,
+          ),
+          CustomTextFormField(
+            title: 'User name',
+          ),
+          const SpaceBox(
+            height: 2,
           ),
           CustomTextFormField(
             title: 'Email',
@@ -50,23 +56,9 @@ class LoginViewBody extends StatelessWidget {
           const SpaceBox(
             height: 1,
           ),
-          GestureDetector(
-            onTap: () {
-              Get.to(
-                () => RegisterView(),
-                transition: Transition.rightToLeft,
-                duration: kTransionDuration,
-              );
-            },
-            child: Text(
-              'Don\'t have an account? register now',
-              style: Styles.bodyText1,
-            ),
-          ),
           Spacer(),
           CustomButton(
-            text: 'Login',
-            textColor: kPrimaryColor,
+            text: 'Regster',
             backGroundColor: Colors.white,
           ),
         ],

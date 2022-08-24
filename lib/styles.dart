@@ -47,7 +47,7 @@ class Styles {
   static TextStyle buttonText = const TextStyle(
     fontFamily: 'Cairo',
     fontSize: 14,
-    color: Color(0xffffffff),
+    color: kPrimaryColor,
     fontWeight: FontWeight.w700,
   );
 }
