@@ -14,21 +14,19 @@ class SplashViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              'My Weather',
-              style: Styles.bodyText6,
-            ),
-            const SpaceBox(
-              height: 1,
-            ),
-            const AnimtedSplashViewText()
-          ],
-        ),
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            'My Weather',
+            style: Styles.bodyText6,
+          ),
+          const SpaceBox(
+            height: 1,
+          ),
+          const AnimtedSplashViewText()
+        ],
       ),
     );
   }

@@ -22,7 +22,7 @@ class Styles {
 
   static TextStyle bodyText4 = const TextStyle(
     fontSize: 24,
-    color: kPrimaryColor,
+    color: Colors.white,
     fontFamily: 'OpenSans',
   );
   static TextStyle bodyText5 = const TextStyle(

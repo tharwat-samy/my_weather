@@ -13,4 +13,5 @@ const kLinearGradient = LinearGradient(
       Color(0xff6B6D89),
     ]);
 
-const kDuration =  Duration(milliseconds: 500);
+const kDuration = Duration(milliseconds: 2500);
+

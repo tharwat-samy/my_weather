@@ -52,9 +52,7 @@ class CustomTextFormField extends StatelessWidget with ValidationMixin {
       onSaved: onSaved,
       obscureText: obsecureText ?? false,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
         filled: true,
-        fillColor: Colors.white,
         suffixIcon: suffexIcon,
         hintText: title,
         hintStyle:
