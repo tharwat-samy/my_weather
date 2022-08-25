@@ -18,3 +18,15 @@ class LoginFailure extends AuthState {
 
   LoginFailure(this.errMesasge);
 }
+
+
+
+class RegisterLoading extends AuthState {}
+
+class RegisterSuccess extends AuthState {}
+
+class RegisterFailure extends AuthState {
+  final String errMesasge;
+
+  RegisterFailure(this.errMesasge);
+}

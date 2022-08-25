@@ -21,15 +21,18 @@ class AuthCubit extends Cubit<AuthState> {
     });
   }
 
-  
-  void register({required String email, required String password , required String userName}) async {
-    emit(LoginLoading());
+  void register(
+      {required String email,
+      required String password,
+      required String userName}) async {
+    emit(RegisterLoading());
 
-    var result = await authRepo.register(email: email, password: password , userName: userName);
+    var result = await authRepo.register(
+        email: email, password: password, userName: userName);
     result.fold((l) {
-      emit(LoginFailure(l.errMessage));
+      emit(RegisterFailure(l.errMessage));
     }, (r) {
-      emit(LoginSuccess());
+      emit(RegisterSuccess());
     });
   }
 }

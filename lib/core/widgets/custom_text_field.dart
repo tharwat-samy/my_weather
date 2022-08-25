@@ -37,6 +37,7 @@ class CustomTextFormField extends StatelessWidget with ValidationMixin {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: Styles.bodyText1,
       focusNode: focusNode,
       onTap: onTap,
       maxLines: maxLength ?? 1,
