@@ -16,13 +16,13 @@ class WeatherItem extends StatelessWidget {
           Text(
             'Moday',
             style: Styles.bodyText2.copyWith(
-              color: kPrimaryColor,
+              color: kSecondaryColor,
             ),
           ),
           Text(
             '27°',
             style: Styles.bodyText2.copyWith(
-              color: kPrimaryColor,
+              color: kSecondaryColor,
             ),
           ),
         ],
