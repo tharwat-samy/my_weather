@@ -62,6 +62,7 @@ class RegisterViewBody extends StatelessWidget {
               height: 2,
             ),
             CustomTextFormField(
+              obsecureText: true,
               onSaved: (value) {
                 password = value;
               },
