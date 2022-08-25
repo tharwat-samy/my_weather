@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myweather/Features/auth/presentaion/manger/login%20cubit/login_cubit.dart';
 
 import '../../../../core/widgets/custom_general_button.dart';
 import '../../../../core/widgets/custom_text_field.dart';
 import '../../../../core/widgets/space_box.dart';
 import '../../../../styles.dart';
+import '../manger/auth_cubit/login_cubit.dart';
 
 class RegisterViewBody extends StatelessWidget {
   RegisterViewBody({Key? key}) : super(key: key);

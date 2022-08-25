@@ -23,10 +23,9 @@ class HomeViewBody extends StatelessWidget {
     return Column(
       children: [
         const SpaceBox(
-          height: 6,
+          height: 8,
         ),
         const CustomappBar(),
-      
         WeatherInfo(
           Weather: weatherModel,
         ),

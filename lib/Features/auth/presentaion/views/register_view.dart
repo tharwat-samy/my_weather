@@ -4,14 +4,16 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart' as bloc;
 import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:myweather/Features/auth/presentaion/manger/login%20cubit/login_cubit.dart';
 import 'package:myweather/Features/auth/presentaion/widgets/register_view_body.dart';
+import 'package:myweather/Features/pick%20location/presentaion/manger/pick_location_cubit/pick_location_cubit.dart';
+import 'package:myweather/Features/pick%20location/presentaion/views/pick_location_view.dart';
 import 'package:myweather/core/widgets/custom_gradient_background.dart';
 import 'package:myweather/core/widgets/custom_loading_indicator.dart';
 
 import '../../../../constants.dart';
 import '../../../../core/widgets/error_bar.dart';
 import '../../../home/presentation/views/home_view.dart';
+import '../manger/auth_cubit/login_cubit.dart';
 
 class RegisterView extends StatelessWidget {
   const RegisterView({Key? key}) : super(key: key);
@@ -24,7 +26,7 @@ class RegisterView extends StatelessWidget {
         listener: (context, state) {
           if (state is RegisterSuccess) {
             Get.to(
-              () => HomeView(),
+              () => PickLocationView(),
               transition: Transition.fade,
               duration: kTransionDuration,
             );

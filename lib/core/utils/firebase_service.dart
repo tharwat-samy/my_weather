@@ -15,6 +15,24 @@ class FirebaseService {
     );
   }
 
+  Future<void> updatePassword({
+    required String password,
+  }) async {
+    await firebaseAuth.currentUser?.updatePassword(password);
+  }
+
+  Future<void> updateEmail({
+    required String email,
+  }) async {
+    await firebaseAuth.currentUser?.updateEmail(email);
+  }
+
+  Future<void> updateUserNmae({
+    required String name,
+  }) async {
+    await firebaseAuth.currentUser?.updateDisplayName(name);
+  }
+
   Future<void> login({required String password, required String email}) async {
     await firebaseAuth.signInWithEmailAndPassword(
       email: email,
@@ -22,23 +40,12 @@ class FirebaseService {
     );
   }
 
-  Future<void> storeData(
-      {required String Collection,
-      required body,
-      required String email}) async {
-    await firestore.collection(Collection).add(body);
-  }
-
-  Future<DocumentSnapshot> readDocument(
-      {required String Collection, required documentId}) async {
-    DocumentSnapshot data =
-        await firestore.collection(Collection).doc(documentId).get();
-
-    return data;
-  }
-
   Future<void> update(
       {required String Collection, required body, required documentId}) async {
     await firestore.collection(Collection).doc(documentId).update(body);
+  }
+
+  User getUser() {
+    return firebaseAuth.currentUser!;
   }
 }

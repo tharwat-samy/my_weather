@@ -38,7 +38,7 @@ class AuthRepoImpl extends AuthRepo {
     try {
       await firebaseService.register(
           password: password, email: email, userName: userName);
-      await storeUserIfno(userName: userName, email: email);
+      await updateUserName(userName: userName);
       return right(null);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -53,21 +53,32 @@ class AuthRepoImpl extends AuthRepo {
     }
   }
 
-  @override
-  Future<Either<Failure, void>> storeUserIfno(
-      {required String userName, required String email}) async {
-    try {
-      await firebaseService.storeData(
-          Collection: kUserCollection,
-          body: {
-            kUserName: userName,
-            kEmail: email,
-          },
-          email: email);
+  // @override
+  // Future<Either<Failure, void>> storeUserIfno(
+  //     {required String userName, required String email}) async {
+  //   try {
+  //     await firebaseService.storeData(
+  //         Collection: kUserCollection,
+  //         body: {
+  //           kUserName: userName,
+  //           kEmail: email,
+  //         },
+  //         email: email);
 
+  //     return right(null);
+  //   } catch (e) {
+  //     return left(ServerFailure(e.toString()));
+  //   }
+  // }
+
+  @override
+  Future<Either<Failure, void>> updateUserName(
+      {required String userName}) async {
+    try {
+      await firebaseService.updateUserNmae(name: userName);
       return right(null);
     } catch (e) {
-      return left(ServerFailure(e.toString()));
+      throw ServerException('problem with storing user name');
     }
   }
 }

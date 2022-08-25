@@ -28,7 +28,8 @@ class HomeView extends StatelessWidget {
               return Center(
                 child: Text(
                   state.errMessage,
-                  style: Styles.bodyText5,
+                  textAlign: TextAlign.center,
+                  style: Styles.bodyText3,
                 ),
               );
             } else {

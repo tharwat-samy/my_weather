@@ -3,8 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:myweather/Features/Edit%20user%20data/data/repositries/edite_data_repo_impl.dart';
+import 'package:myweather/Features/Edit%20user%20data/presentation/manger/cubit/edit_data_cubit.dart';
 import 'package:myweather/Features/auth/data/repositries/auth_repo_impl.dart';
-import 'package:myweather/Features/auth/presentaion/manger/login%20cubit/login_cubit.dart';
 import 'package:myweather/Features/home/data/repositries/home_repo_impl.dart';
 import 'package:myweather/Features/home/presentation/manger/weather_cubit/weather_cubit.dart';
 import 'package:myweather/Features/pick%20location/data/pick_location_repo_impl.dart';
@@ -15,6 +16,7 @@ import 'package:myweather/core/utils/api.dart';
 import 'package:myweather/core/utils/firebase_service.dart';
 import 'package:myweather/core/utils/simple_bloc_observer.dart';
 
+import 'Features/auth/presentaion/manger/auth_cubit/login_cubit.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -51,6 +53,13 @@ class MyWeather extends StatelessWidget {
           create: (context) => WeatherCubit(
             HomeRepoIml(
               Api(),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => EditDataCubit(
+            EditDataRepoImpl(
+              FirebaseService(),
             ),
           ),
         )

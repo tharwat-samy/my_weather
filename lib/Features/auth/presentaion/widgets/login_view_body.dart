@@ -3,7 +3,6 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart' as bloc;
 import 'package:get/get.dart';
-import 'package:myweather/Features/auth/presentaion/manger/login%20cubit/login_cubit.dart';
 import 'package:myweather/Features/auth/presentaion/views/register_view.dart';
 import 'package:myweather/Features/home/presentation/views/home_view.dart';
 import 'package:myweather/constants.dart';
@@ -11,6 +10,8 @@ import 'package:myweather/core/widgets/custom_general_button.dart';
 import 'package:myweather/core/widgets/custom_text_field.dart';
 import 'package:myweather/core/widgets/space_box.dart';
 import 'package:myweather/styles.dart';
+
+import '../manger/auth_cubit/login_cubit.dart';
 
 class LoginViewBody extends StatelessWidget {
   LoginViewBody({Key? key}) : super(key: key);

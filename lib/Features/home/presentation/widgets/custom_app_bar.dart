@@ -14,7 +14,7 @@ class CustomappBar extends StatelessWidget {
       children: [
         Text(
           Prefs.prefs.getString(kCityName) ?? 'Alexandria',
-          style: Styles.bodyText4,
+          style: Styles.bodyText5,
         )
       ],
     );
