@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SizeConfig {
-  static double? screenWidth;
-  static double? screenHeight;
+  static late double screenWidth;
+   static late double screenHeight;
   static late  double defaultSize;
   static Orientation? orientation;
 
