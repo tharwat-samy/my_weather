@@ -8,6 +8,7 @@ import 'package:myweather/Features/home/presentation/manger/weather_cubit/weathe
 import 'package:myweather/constants.dart';
 import 'package:myweather/core/singleton/shared_prefrence_singleton.dart';
 import 'package:myweather/core/widgets/custom_gradient_background.dart';
+import 'package:myweather/core/widgets/custom_loading_indicator.dart';
 import 'package:myweather/core/widgets/success_bar.dart';
 
 import '../../../../core/widgets/error_bar.dart';
@@ -35,6 +36,8 @@ class UpdateUserView extends StatelessWidget {
         },
         builder: (context, state) {
           return ModalProgressHUD(
+            color: Colors.transparent,
+            progressIndicator: CustomLoadingIndicator(),
             inAsyncCall: state is EditDataLoading ? true : false,
             child: CustomGradientBackGround(
               child: UpdateUserViewBody(),

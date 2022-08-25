@@ -1,3 +1,4 @@
+
 import 'package:dartz/dartz.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -5,12 +6,13 @@ import 'package:myweather/Features/home/domain/models/weather_model/location.dar
 import 'package:myweather/Features/pick%20location/domain/repositries/pick_location_repo.dart';
 import 'package:myweather/core/Error/exceptions.dart';
 import 'package:myweather/core/Error/failures.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class PickLocationRepoImpl implements PickLocationRepo {
   @override
   Future<Either<Failure, String>> getLocation() async {
+    await Permission.location;
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-
     if (serviceEnabled) {
       var permission = await Geolocator.checkPermission();
       if (permission == LocationPermission.denied) {

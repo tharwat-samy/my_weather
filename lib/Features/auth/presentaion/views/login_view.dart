@@ -25,7 +25,7 @@ class LoginView extends StatelessWidget {
           child: bloc.BlocConsumer<AuthCubit, AuthState>(
             listener: (context, state) {
               if (state is LoginSuccess) {
-                Get.to(
+                Get.off(
                   () => PickLocationView(),
                   transition: Transition.fade,
                   duration: kTransionDuration,
@@ -38,6 +38,7 @@ class LoginView extends StatelessWidget {
             },
             builder: (context, state) {
               return ModalProgressHUD(
+                  color: Colors.transparent,
                   inAsyncCall: state is LoginLoading ? true : false,
                   progressIndicator: const CustomLoadingIndicator(),
                   child: LoginViewBody());

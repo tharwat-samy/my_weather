@@ -25,7 +25,7 @@ class RegisterView extends StatelessWidget {
       body: bloc.BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
           if (state is RegisterSuccess) {
-            Get.to(
+            Get.off(
               () => PickLocationView(),
               transition: Transition.fade,
               duration: kTransionDuration,
@@ -38,6 +38,7 @@ class RegisterView extends StatelessWidget {
         },
         builder: (context, state) {
           return ModalProgressHUD(
+            color: Colors.transparent,
             progressIndicator: const CustomLoadingIndicator(),
             inAsyncCall: state is RegisterLoading ? true : false,
             child: CustomGradientBackGround(

@@ -46,6 +46,7 @@ dependencies:
   get: ^4.6.5
   lottie: ^1.4.2
   modal_progress_hud_nsn: ^0.3.0
+  permission_handler: ^10.0.0
   shared_preferences: ^2.0.15
 
 dev_dependencies:
