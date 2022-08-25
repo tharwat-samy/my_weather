@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:myweather/Features/pick%20location/domain/repositries/pick_location_repo.dart';
+import 'package:myweather/constants.dart';
+import 'package:myweather/core/singleton/shared_prefrence_singleton.dart';
 
 part 'pick_location_state.dart';
 
@@ -16,7 +18,8 @@ class PickLocationCubit extends Cubit<PickLocationState> {
     result.fold((l) {
       emit(PickLocationFailure(l.errMessage));
     }, (r) {
-      emit(PickLocationSuccess());
+      Prefs.prefs.setString(kCityName, kCityName);
+      emit(PickLocationSuccess(cityName: r));
     });
   }
 }

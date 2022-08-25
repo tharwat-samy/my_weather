@@ -17,4 +17,8 @@ class PickLocationFailure extends PickLocationState {
   const PickLocationFailure(this.errMessage);
 }
 
-class PickLocationSuccess extends PickLocationState {}
+class PickLocationSuccess extends PickLocationState {
+  final String cityName;
+
+ const  PickLocationSuccess({required  this.cityName});
+}
