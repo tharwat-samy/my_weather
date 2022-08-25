@@ -4,6 +4,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class FirebaseService {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  
+
+  bool get isLoggedIn => firebaseAuth.currentUser != null ? true : false ;
 
   Future<void> register(
       {required String userName,

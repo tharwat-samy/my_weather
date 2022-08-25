@@ -53,24 +53,6 @@ class AuthRepoImpl extends AuthRepo {
     }
   }
 
-  // @override
-  // Future<Either<Failure, void>> storeUserIfno(
-  //     {required String userName, required String email}) async {
-  //   try {
-  //     await firebaseService.storeData(
-  //         Collection: kUserCollection,
-  //         body: {
-  //           kUserName: userName,
-  //           kEmail: email,
-  //         },
-  //         email: email);
-
-  //     return right(null);
-  //   } catch (e) {
-  //     return left(ServerFailure(e.toString()));
-  //   }
-  // }
-
   @override
   Future<Either<Failure, void>> updateUserName(
       {required String userName}) async {
@@ -81,4 +63,6 @@ class AuthRepoImpl extends AuthRepo {
       throw ServerException('problem with storing user name');
     }
   }
+  
+  
 }

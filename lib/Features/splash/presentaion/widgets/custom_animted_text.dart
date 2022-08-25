@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart' as bloc;
 import 'package:get/get.dart';
+import 'package:myweather/Features/home/presentation/views/home_view.dart';
+import 'package:myweather/Features/pick%20location/presentaion/manger/pick_location_cubit/pick_location_cubit.dart';
+import 'package:myweather/Features/pick%20location/presentaion/views/pick_location_view.dart';
+import 'package:myweather/core/singleton/shared_prefrence_singleton.dart';
+import 'package:myweather/core/utils/firebase_service.dart';
 
 import '../../../../constants.dart';
 import '../../../../styles.dart';
 import '../../../auth/presentaion/views/login_view.dart';
+import '../../../home/presentation/manger/weather_cubit/weather_cubit.dart';
 
 class AnimtedSplashViewText extends StatefulWidget {
   const AnimtedSplashViewText({
@@ -53,10 +60,22 @@ class _AnimtedSplashViewTextState extends State<AnimtedSplashViewText>
 
   void goToNextView() {
     Future.delayed(kDuration, () {
-      Get.to(
-        () => LoginView(),
-        transition: Transition.fade,
-      );
+      if (FirebaseService().isLoggedIn) {
+        bloc.BlocProvider.of<WeatherCubit>(context).getWeather(
+          cityName: Prefs.prefs.getString(
+            kCityName,
+          ),
+        );
+        Get.to(
+          () => const HomeView(),
+          transition: Transition.fade,
+        );
+      } else {
+        Get.to(
+          () => const LoginView(),
+          transition: Transition.fade,
+        );
+      }
     });
   }
 }

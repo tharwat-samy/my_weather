@@ -10,6 +10,7 @@ class AuthCubit extends Cubit<AuthState> {
 
   final AuthRepo authRepo;
 
+
   void loginUser({required String email, required String password}) async {
     emit(LoginLoading());
 

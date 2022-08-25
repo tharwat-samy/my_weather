@@ -10,10 +10,8 @@ abstract class AuthRepo {
       required String email,
       required String password});
 
-      Future<Either<Failure, void>> updateUserName(
-      {required String userName,
-     
-     });
+  Future<Either<Failure, void>> updateUserName({
+    required String userName,
+  });
 
-  
 }
