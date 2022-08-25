@@ -27,10 +27,12 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  cloud_firestore: ^3.4.5
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
   dio: ^4.0.6
   equatable: ^2.0.5
+  firebase_auth: ^3.6.4
   firebase_core: ^1.21.0
   flash: ^2.0.3+3
   flutter:
