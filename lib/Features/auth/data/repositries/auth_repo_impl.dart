@@ -38,7 +38,7 @@ class AuthRepoImpl extends AuthRepo {
     try {
       await firebaseService.register(
           password: password, email: email, userName: userName);
-
+      await storeUserIfno(userName: userName, email: email);
       return right(null);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
