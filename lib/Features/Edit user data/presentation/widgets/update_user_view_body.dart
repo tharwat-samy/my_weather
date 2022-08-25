@@ -7,33 +7,25 @@ import '../../../../core/widgets/custom_text_field.dart';
 import '../../../../core/widgets/space_box.dart';
 import '../../../../styles.dart';
 
-class RegisterViewBody extends StatelessWidget {
-  const RegisterViewBody({Key? key}) : super(key: key);
-
-
+class UpdateUserViewBody extends StatelessWidget {
+  const UpdateUserViewBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 22, vertical: 24),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SpaceBox(
             height: 7,
           ),
           Text(
-            'Become a Member',
+            'Update Info',
             style: Styles.bodyText6,
           ),
           const SpaceBox(
             height: .5,
-          ),
-          Text(
-            'Create an Account',
-            style: Styles.bodyText4.copyWith(
-              color: Colors.grey.withOpacity(.7),
-            ),
           ),
           const SpaceBox(
             height: 7,
@@ -52,6 +44,12 @@ class RegisterViewBody extends StatelessWidget {
           ),
           CustomTextFormField(
             title: 'Password',
+          ),
+          const SpaceBox(
+            height: 2,
+          ),
+          CustomTextFormField(
+            title: 'Location',
           ),
           const SpaceBox(
             height: 1,
