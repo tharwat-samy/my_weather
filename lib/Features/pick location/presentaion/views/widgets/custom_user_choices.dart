@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart' as bloc;
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:myweather/Features/pick%20location/presentaion/manger/pick_location_cubit/pick_location_cubit.dart';
@@ -16,6 +16,8 @@ import 'package:myweather/core/widgets/space_box.dart';
 import 'package:myweather/styles.dart';
 
 import '../../../../../core/utils/size_config.dart';
+import '../../../../home/presentation/manger/weather_cubit/weather_cubit.dart';
+import '../../../../home/presentation/views/home_view.dart';
 import 'choice_item.dart';
 
 class LocationChoices extends StatefulWidget {
@@ -67,15 +69,28 @@ class _LocationChoicesState extends State<LocationChoices>
         children: [
           CustomTextField(
             title: 'Enter a City Name',
+            onChanged: (value) {
+              cityName = value;
+            },
             onSubmitted: (value) {
-              if (value?.isNotEmpty ?? false) {}
+              print(cityName);
+              if (value?.isNotEmpty ?? false) {
+                cityName = value;
+                getWeather(context);
+              }
             },
           ),
           const SpaceBox(
             height: 2,
           ),
           CustomButton(
-            onTap: () {},
+            onTap: () {
+              print(cityName);
+              if (cityName?.isNotEmpty ?? false) {
+                print(cityName);
+                getWeather(context);
+              }
+            },
             text: 'Confirm',
             textColor: kPrimaryColor,
             backGroundColor: Colors.white,
@@ -116,7 +131,8 @@ class _LocationChoicesState extends State<LocationChoices>
                 ),
                 ChoiceItem(
                   onTap: () async {
-                    BlocProvider.of<PickLocationCubit>(context).getLocation();
+                    bloc.BlocProvider.of<PickLocationCubit>(context)
+                        .getLocation();
                   },
                   text: 'Automatically',
                 ),
@@ -125,6 +141,15 @@ class _LocationChoicesState extends State<LocationChoices>
           ),
         ),
       ),
+    );
+  }
+
+  void getWeather(BuildContext context) {
+    bloc.BlocProvider.of<WeatherCubit>(context).getWeather(cityName: cityName);
+    Get.to(
+      () => HomeView(),
+      transition: Transition.fade,
+      duration: kTransionDuration,
     );
   }
 

@@ -18,7 +18,7 @@ class PickLocationCubit extends Cubit<PickLocationState> {
     result.fold((l) {
       emit(PickLocationFailure(l.errMessage));
     }, (r) {
-      Prefs.prefs.setString(kCityName, kCityName);
+      Prefs.prefs.setString(kCityName, r);
       emit(PickLocationSuccess(cityName: r));
     });
   }

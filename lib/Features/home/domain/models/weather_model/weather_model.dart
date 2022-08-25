@@ -31,7 +31,7 @@ class WeatherModel extends Equatable {
         'forecast': forecast?.toMap(),
       };
 
-  factory WeatherModel.fromJson( data) {
+  factory WeatherModel.fromJson(data) {
     return WeatherModel.fromMap(data);
   }
 

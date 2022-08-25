@@ -16,9 +16,9 @@ class HomeRepoIml implements HomeRepo {
           endPoint:
               'forecast.json?key=3677bed892474b30b7a122242220806&q=$cityName&days=7');
       return right(
-        WeatherModel.fromJson(
+      
           WeatherModel.fromJson(response.data),
-        ),
+        
       );
     } catch (e) {
       return left(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myweather/Features/home/domain/models/weather_model/weather_model.dart';
 import 'package:myweather/Features/home/presentation/widgets/weather_list.dart';
 
 import '../../../../core/utils/size_config.dart';
@@ -7,9 +8,9 @@ import 'custom_settings_button.dart';
 
 class HomeVIewBodyFooter extends StatelessWidget {
   const HomeVIewBodyFooter({
-    Key? key,
+    Key? key, required this.weatherModel,
   }) : super(key: key);
-
+  final WeatherModel weatherModel;
   @override
   Widget build(BuildContext context) {
     return SizedBox(

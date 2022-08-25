@@ -12,14 +12,21 @@ class WeatherCubit extends Cubit<WeatherState> {
 
   final HomeRepo homeRepo;
 
-  void loginUser({required String email, required String password}) async {
+  WeatherModel? weatherModel;
+  void getWeather({String? cityName}) async {
     emit(WeatherLoading());
-
+    if (cityName != null) {
+      Prefs.prefs.setString(kCityName, cityName);
+    }
     var result = await homeRepo.getWeatehr(
         cityName: Prefs.prefs.getString(kCityName) ?? 'Alexandria');
     result.fold((l) {
+      print(l);
       emit(WeatherFailure(l.errMessage));
     }, (r) {
+      emit(WeatherLoading());
+
+      weatherModel = r;
       emit(WeatherSuccess(
         weatherModel: r,
       ));

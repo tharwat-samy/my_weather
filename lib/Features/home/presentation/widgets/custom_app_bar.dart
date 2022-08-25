@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:myweather/constants.dart';
+import 'package:myweather/core/singleton/shared_prefrence_singleton.dart';
 
 import '../../../../styles.dart';
 
@@ -11,7 +13,7 @@ class CustomappBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'Alexandria',
+          Prefs.prefs.getString(kCityName) ?? 'Alexandria',
           style: Styles.bodyText4,
         )
       ],

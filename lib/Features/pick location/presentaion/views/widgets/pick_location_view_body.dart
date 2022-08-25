@@ -18,21 +18,24 @@ class PickLocationViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SpaceBox(
-            height: 7,
-          ),
-          Text(
-            'Pick your Location',
-            style: Styles.bodyText5,
-          ),
-          const SpaceBox(
-            height: 10,
-          ),
-          ChoicesBuilder(),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SpaceBox(
+              height: 7,
+            ),
+            Text(
+              'Pick your Location',
+              style: Styles.bodyText5,
+            ),
+            const SpaceBox(
+              height: 10,
+            ),
+            ChoicesBuilder(),
+          ],
+        ),
       ),
     );
   }
