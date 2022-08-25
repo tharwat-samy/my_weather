@@ -5,5 +5,6 @@ import 'package:myweather/core/Error/failures.dart';
 
 abstract class PickLocationRepo {
   Future<Either<Failure, String>> getLocation();
-  Future<String> DecodeLocation({required Position position});
+  // will be used inside getLocation method 
+  Future<String> decodeLocation({required Position position});
 }

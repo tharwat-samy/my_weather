@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:myweather/Features/auth/data/repositries/auth_repo_impl.dart';
 import 'package:myweather/Features/auth/presentaion/manger/login%20cubit/login_cubit.dart';
+import 'package:myweather/Features/pick%20location/data/pick_location_repo_impl.dart';
+import 'package:myweather/Features/pick%20location/presentaion/manger/pick_location_cubit/pick_location_cubit.dart';
 import 'package:myweather/Features/splash/presentaion/views/splash_view.dart';
 import 'package:myweather/core/utils/firebase_service.dart';
 import 'package:myweather/core/utils/simple_bloc_observer.dart';
@@ -33,6 +35,11 @@ class MyWeather extends StatelessWidget {
             AuthRepoImpl(
               FirebaseService(),
             ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => PickLocationCubit(
+            PickLocationRepoImpl(),
           ),
         )
       ],

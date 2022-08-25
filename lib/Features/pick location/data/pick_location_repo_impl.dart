@@ -24,7 +24,7 @@ class PickLocationRepoImpl implements PickLocationRepo {
       } else {
         Position position = await Geolocator.getCurrentPosition();
 
-        var cityName = await  DecodeLocation(position: position);
+        var cityName = await decodeLocation(position: position);
         return right(cityName);
       }
     } else {
@@ -35,7 +35,7 @@ class PickLocationRepoImpl implements PickLocationRepo {
   }
 
   @override
-  Future<String> DecodeLocation({required Position position}) async {
+  Future<String> decodeLocation({required Position position}) async {
     try {
       var address = await Geocoder.local.findAddressesFromCoordinates(
         Coordinates(position.latitude, position.longitude),
