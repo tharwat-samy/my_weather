@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:myweather/Features/auth/presentaion/views/register_view.dart';
+import 'package:myweather/Features/home/presentation/views/home_view.dart';
 import 'package:myweather/constants.dart';
 import 'package:myweather/core/widgets/custom_general_button.dart';
 import 'package:myweather/core/widgets/custom_text_field.dart';
@@ -65,6 +66,10 @@ class LoginViewBody extends StatelessWidget {
           ),
           Spacer(),
           CustomButton(
+            onTap: () {
+              Get.to(() => HomeView(),
+                  transition: Transition.fade, duration: kTransionDuration);
+            },
             text: 'Login',
             textColor: kPrimaryColor,
             backGroundColor: Colors.white,
