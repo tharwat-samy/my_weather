@@ -7,10 +7,9 @@ part 'pick_location_state.dart';
 class PickLocationCubit extends Cubit<PickLocationState> {
   PickLocationCubit(this.pickLocation) : super(PickLocationInitial());
 
-  
   final PickLocationRepo pickLocation;
 
-  void loginUser() async {
+  void getLocation() async {
     emit(PickLocationLoading());
 
     var result = await pickLocation.getLocation();
@@ -20,5 +19,4 @@ class PickLocationCubit extends Cubit<PickLocationState> {
       emit(PickLocationSuccess());
     });
   }
-
 }

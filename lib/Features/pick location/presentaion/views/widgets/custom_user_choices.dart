@@ -4,8 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
+import 'package:myweather/Features/pick%20location/presentaion/manger/pick_location_cubit/pick_location_cubit.dart';
 import 'package:myweather/constants.dart';
 import 'package:myweather/core/widgets/custom_general_button.dart';
 import 'package:myweather/core/widgets/custom_text_field.dart';
@@ -36,6 +38,20 @@ class _LocationChoicesState extends State<LocationChoices>
     initSlideAnimation();
     initFadeAnimation();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+
+    _slideanimationController.dispose();
+    _FadeanimationController.dispose();
+  }
+
+  @override
+  void didUpdateWidget(covariant LocationChoices oldWidget) {
+    super.didUpdateWidget(oldWidget);
   }
 
   bool isFirstChild = true;
@@ -100,7 +116,7 @@ class _LocationChoicesState extends State<LocationChoices>
                 ),
                 ChoiceItem(
                   onTap: () async {
-                    await determineLocation(context);
+                    BlocProvider.of<PickLocationCubit>(context).getLocation();
                   },
                   text: 'Automatically',
                 ),
@@ -132,22 +148,5 @@ class _LocationChoicesState extends State<LocationChoices>
     );
 
     _slideanimationController.forward();
-  }
-
-  Future<void> determineLocation(context) async {
-    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-
-    if (serviceEnabled) {
-      var permission = await Geolocator.checkPermission();
-      if (permission == LocationPermission.denied) {
-        errorBar(context, message: 'Location Permissions are denied');
-      } else if (permission == LocationPermission.deniedForever) {
-        errorBar(context, message: 'Location Permissions are denied forever');
-      } else {
-        print(await Geolocator.getCurrentPosition());
-      }
-    } else {
-      errorBar(context, message: 'Location Services are disabled');
-    }
   }
 }
