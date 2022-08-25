@@ -16,3 +16,9 @@ const kLinearGradient = LinearGradient(
 const kDuration = Duration(milliseconds: 2500);
 
 const kTransionDuration = Duration(milliseconds: 500);
+
+const kUserCollection = 'users';
+const kUserName = 'userName';
+
+const kEmail = 'userEmail';
+
