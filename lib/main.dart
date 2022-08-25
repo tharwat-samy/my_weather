@@ -1,13 +1,20 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:myweather/Features/auth/data/repositries/auth_repo_impl.dart';
+import 'package:myweather/Features/auth/presentaion/manger/login%20cubit/login_cubit.dart';
 import 'package:myweather/Features/splash/presentaion/views/splash_view.dart';
+import 'package:myweather/core/utils/firebase_service.dart';
+import 'package:myweather/core/utils/simple_bloc_observer.dart';
 
 import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  Bloc.observer = SimpleBlocObserver();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -19,10 +26,21 @@ class MyWeather extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: SplashView(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AuthCubit(
+            AuthRepoImpl(
+              FirebaseService(),
+            ),
+          ),
+        )
+      ],
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          body: SplashView(),
+        ),
       ),
     );
   }
