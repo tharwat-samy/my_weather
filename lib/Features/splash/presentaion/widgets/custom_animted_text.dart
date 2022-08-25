@@ -66,12 +66,12 @@ class _AnimtedSplashViewTextState extends State<AnimtedSplashViewText>
             kCityName,
           ),
         );
-        Get.to(
+        Get.off(
           () => const HomeView(),
           transition: Transition.fade,
         );
       } else {
-        Get.to(
+        Get.off(
           () => const LoginView(),
           transition: Transition.fade,
         );
