@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/size_config.dart';
 import '../../../../../styles.dart';
+
 class ChoiceItem extends StatelessWidget {
   ChoiceItem({Key? key, required this.text, @required this.onTap})
       : super(key: key);

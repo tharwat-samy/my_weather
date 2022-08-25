@@ -5,9 +5,11 @@ abstract class AuthRepo {
   Future<Either<Failure, void>> login(
       {required String email, required String password});
 
-Future<Either<Failure, void>> register(
-      {required String userName, required String email , required String password});
-  
-Future<Either<Failure, void>> storeUserIfno(
+  Future<Either<Failure, void>> register(
+      {required String userName,
+      required String email,
+      required String password});
+
+  Future<Either<Failure, void>> storeUserIfno(
       {required String userName, required String email});
 }

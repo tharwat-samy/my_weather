@@ -67,7 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '452046785925',
     projectId: 'my-weather-2e1fd',
     storageBucket: 'my-weather-2e1fd.appspot.com',
-    iosClientId: '452046785925-o2jom5fik8i9gq3drnjgu8c5vha16852.apps.googleusercontent.com',
+    iosClientId:
+        '452046785925-o2jom5fik8i9gq3drnjgu8c5vha16852.apps.googleusercontent.com',
     iosBundleId: 'com.example.sartUpProject',
   );
 
@@ -77,7 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '452046785925',
     projectId: 'my-weather-2e1fd',
     storageBucket: 'my-weather-2e1fd.appspot.com',
-    iosClientId: '452046785925-o2jom5fik8i9gq3drnjgu8c5vha16852.apps.googleusercontent.com',
+    iosClientId:
+        '452046785925-o2jom5fik8i9gq3drnjgu8c5vha16852.apps.googleusercontent.com',
     iosBundleId: 'com.example.sartUpProject',
   );
 }

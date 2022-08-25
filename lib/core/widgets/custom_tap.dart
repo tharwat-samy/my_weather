@@ -37,7 +37,7 @@ class CustomTap extends StatelessWidget {
                       color: Colors.blueAccent,
                     ),
               textHeightBehavior:
-                const   TextHeightBehavior(applyHeightToFirstAscent: false),
+                  const TextHeightBehavior(applyHeightToFirstAscent: false),
               textAlign: TextAlign.right,
             ),
           ),

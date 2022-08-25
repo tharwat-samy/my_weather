@@ -12,7 +12,8 @@ class CustomCurve extends CustomPainter {
     path.moveTo(0, size.height * .15);
     path.quadraticBezierTo(
         size.width / 4, size.height * .3, size.width / 2, size.height * .15);
-    path.quadraticBezierTo(size.width * 3 / 4, 0, size.width, size.height * .15);
+    path.quadraticBezierTo(
+        size.width * 3 / 4, 0, size.width, size.height * .15);
 
     path.lineTo(size.width, size.height);
 

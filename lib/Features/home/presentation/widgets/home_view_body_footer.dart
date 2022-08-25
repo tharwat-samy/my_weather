@@ -1,11 +1,10 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:myweather/Features/home/presentation/widgets/weather_list.dart';
 
 import '../../../../core/utils/size_config.dart';
 import 'custom_home_curve.dart';
 import 'custom_settings_button.dart';
+
 class HomeVIewBodyFooter extends StatelessWidget {
   const HomeVIewBodyFooter({
     Key? key,
@@ -45,4 +44,3 @@ class HomeVIewBodyFooter extends StatelessWidget {
     );
   }
 }
-

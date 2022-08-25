@@ -54,7 +54,7 @@ class _AnimtedSplashViewTextState extends State<AnimtedSplashViewText>
   void goToNextView() {
     Future.delayed(kDuration, () {
       Get.to(
-        () =>  LoginView(),
+        () => LoginView(),
         transition: Transition.fade,
       );
     });

@@ -55,7 +55,7 @@ class _LocationChoicesState extends State<LocationChoices>
               if (value?.isNotEmpty ?? false) {}
             },
           ),
-        const   SpaceBox(
+          const SpaceBox(
             height: 2,
           ),
           CustomButton(
@@ -64,7 +64,7 @@ class _LocationChoicesState extends State<LocationChoices>
             textColor: kPrimaryColor,
             backGroundColor: Colors.white,
           ),
-        const   SpaceBox(
+          const SpaceBox(
             height: 1,
           ),
           GestureDetector(
@@ -111,20 +111,6 @@ class _LocationChoicesState extends State<LocationChoices>
       ),
     );
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   void initFadeAnimation() {
     _FadeanimationController = AnimationController(

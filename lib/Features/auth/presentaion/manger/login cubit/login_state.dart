@@ -19,8 +19,6 @@ class LoginFailure extends AuthState {
   LoginFailure(this.errMesasge);
 }
 
-
-
 class RegisterLoading extends AuthState {}
 
 class RegisterSuccess extends AuthState {}

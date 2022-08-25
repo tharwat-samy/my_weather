@@ -3,5 +3,3 @@ class ServerException implements Exception {
 
   ServerException(this.errMessage);
 }
-
-

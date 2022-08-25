@@ -93,7 +93,7 @@ class CustomTextField extends StatelessWidget with ValidationMixin {
   final int? maxLength;
   final TextInputType? inputType;
   final StringCallBack? validator;
-  final Function(String?)? onSubmitted ;
+  final Function(String?)? onSubmitted;
   final Widget? suffexIcon;
   final ValueSetter? onSaved;
   final ValueSetter? onChanged;
