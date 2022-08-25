@@ -14,7 +14,7 @@ class PickLocationLoading extends PickLocationState {}
 class PickLocationFailure extends PickLocationState {
   final String errMessage;
 
-  PickLocationFailure(this.errMessage);
+  const PickLocationFailure(this.errMessage);
 }
 
 class PickLocationSuccess extends PickLocationState {}

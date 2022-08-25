@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:geocoder/geocoder.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:myweather/Features/home/domain/models/weather_model/location.dart';
 import 'package:myweather/Features/pick%20location/domain/repositries/pick_location_repo.dart';
@@ -37,11 +37,10 @@ class PickLocationRepoImpl implements PickLocationRepo {
   @override
   Future<String> decodeLocation({required Position position}) async {
     try {
-      var address = await Geocoder.local.findAddressesFromCoordinates(
-        Coordinates(position.latitude, position.longitude),
-      );
+      List<Placemark> placeList =
+          await placemarkFromCoordinates(position.latitude, position.longitude);
 
-      return address.first.countryName;
+      return placeList[0].country ?? 'Alexandria';
     } catch (e) {
       throw ServerException(e.toString());
     }
